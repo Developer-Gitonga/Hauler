@@ -1,4 +1,5 @@
-start.sh
+start.
+public/public/__init__.py
 *.png
 *.jpg
 # Byte-compiled / optimized / DLL files
