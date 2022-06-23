@@ -142,6 +142,7 @@ def create_post(request):
         description = request.POST['description']
 
         post = Posts(
+            user = current_user,
             title = title,
             description = description
         )
@@ -149,7 +150,7 @@ def create_post(request):
 
     
 
-        return render(request, 'haul/posts.html')
+        return redirect('posts')
 
 
 
