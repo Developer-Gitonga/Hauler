@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+<!--  -->
+{% block content %}
+<!-- home content -->
+<div class="hero">
+  <h3>There's no place like 127.0.0.1</h3>
+  {% if user.is_anonymous %}
+  <p>Hello, pls login</p>
+  {% else %}
+  <p>Hi there,{{request.user}}</p>
+  {% endif %}
+</div>
+{% endblock %}
