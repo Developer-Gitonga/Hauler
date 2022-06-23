@@ -1,12 +1,11 @@
 {% load bootstrap4 %} {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    {% if title %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {% if title %}
     <title>{{title}}| Hauler</title>
     {% else %}
     <title>Hauler</title>
@@ -16,28 +15,24 @@
 
     <!-- static file links -->
     {% block styles %} {% bootstrap_css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" /> {% endblock %}
 
     <!-- end static links -->
-  </head>
+</head>
 
-  <body>
+<body>
     {% include 'haul/nav.html' %}
     <div class="container-fluid">
-      {% block content %}
-      <!-- home content -->
-      {%endblock%}
+        {% block content %}
+        <!-- home content -->
+        {%endblock%}
     </div>
 
     {% block scripts %}
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     {% bootstrap_javascript %}
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     {% endblock %}
-  </body>
+</body>
+
 </html>
