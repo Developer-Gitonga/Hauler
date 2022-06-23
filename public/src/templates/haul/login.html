@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+<!-- login template -->
+{% block content %}
+<!-- login form -->
+<div class="wrapper">
+  <div class="user-alerts">
+    {% for message in messages %}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <p>{{ message }}</p>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="row mt-5 justify-content-center">
+    <div class="col-12 col-lg-6 col-md-8 col-sm-12">
+      <div class="login-form p-5 rounded shadow-sm">
+        {% load static %}
+        <div class="text-center">
+          <img src="{% static 'media/unlock.png' %}" alt="" height="200px" />
+        </div>
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              class="form-control"
+            />
+          </div>
+          <div class="form-group input-group">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              class="form-control is-valid password-field"
+              required
+            />
+            <div class="input-group-prepend">
+              <span class="btn btn-sm show-password input-group-text"
+                >show</span
+              >
+            </div>
+          </div>
+          <div class="">
+            <input
+              type="submit"
+              class="btn btn-outline-primary btn-sm btn-block is-valid mb-2"
+              required
+            />
+          </div>
+        </form>
+
+        <p class="text-muted">
+          Don't have an account?
+          <a href="{% url 'register' %}">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // select btn
+  const btn = document.querySelector(".show-password");
+  btn.addEventListener("click", function () {
+    // get input field
+    const password = document.querySelector(".password-field");
+    if (password.type === "password") {
+      // change input type, & show password
+      password.type = "text";
+      btn.innerHTML = "-";
+    } else {
+      // change input type, & hide password
+      password.type = "password";
+      btn.innerHTML = "+";
+    }
+  });
+</script>
+
+{% endblock %}
