@@ -129,3 +129,25 @@ class ProfileView( View):
 
         }
         return render(request, 'haul/profile.html', context)
+
+
+# creating of posts and viewing posts
+
+
+
+def create_post(request):
+    
+
+    return render(request, 'haul/posts.html')
+
+
+
+
+
+
+def Posts(request):
+
+
+
+
+    return render(request,'haul/posts.html')
