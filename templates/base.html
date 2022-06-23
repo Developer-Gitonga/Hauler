@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {% if title %}
-    <title>{{title}}| Haul</title>
+    <title>{{title}}| Hauler</title>
     {% else %}
-    <title>Haul</title>
+    <title>Hauler</title>
     {% endif %}
+
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
 
     <!-- static file links -->
     {% block styles %} {% bootstrap_css %}
@@ -22,7 +24,7 @@
 
   <body>
     {% include 'haul/nav.html' %}
-    <div class="container mt-3">
+    <div class="container-fluid">
       {% block content %}
       <!-- home content -->
       {%endblock%}
