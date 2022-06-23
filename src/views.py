@@ -9,8 +9,7 @@ from django.urls import reverse
 
 # app imports
 from .forms import *
-from .models import *
-
+from .models import Posts
 # Create your views here.
 
 
@@ -136,18 +135,38 @@ class ProfileView( View):
 
 
 def create_post(request):
+
+    if request.method == 'POST':
+        current_user = request.user
+        title = request.POST['title']
+        description = request.POST['description']
+
+        post = Posts(
+            title = title,
+            description = description
+        )
+        post.create_post()
+
     
 
-    return render(request, 'haul/posts.html')
+        return render(request, 'haul/posts.html')
 
 
 
 
 
 
-def Posts(request):
+def Posted(request):
+
+    posts = Posts.objects.all()
+
+    ctx = posts
 
 
 
 
-    return render(request,'haul/posts.html')
+
+
+
+
+    return render(request,'haul/posts.html',{ "posts":posts})
