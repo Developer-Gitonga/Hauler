@@ -24,3 +24,10 @@ class UserProfile(models.Model):
             user_profile.save()
     post_save.connect(create_profile, sender=User)   
 
+
+
+class Posts(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100 ,blank=False)
+    description = models.TextField(max_length=300, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
