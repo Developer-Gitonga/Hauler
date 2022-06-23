@@ -3,12 +3,31 @@
 <!--  -->
 {% block content %}
 <!-- home content -->
-<div class="hero">
-  <h3>There's no place like 127.0.0.1</h3>
-  {% if user.is_anonymous %}
-  <p>Hello, pls login</p>
-  {% else %}
-  <p>Hi there,{{request.user}}</p>
-  {% endif %}
+<div class="row">
+  <div class="col col-lg-12">
+    <div class="hero-banner">
+      <div class="banner-text rounded">
+        <h3>Let's Get Moving...</h3>
+      </div>
+      <div class="quote-form text-center">
+        <h3 class="text-light">
+          Hauler is the quick, convenient option that makes long-distance moving
+          easy
+        </h3>
+        <button class="btn btn-primary btn-sm">Get a quote.</button>
+      </div>
+    </div>
+    <div class="jumbotron service-poster p-4">
+      <h3>
+        <i class="fas fa-info-circle"></i>
+        <span class="text-dark">
+          We Drive. You Save. Hauler is the long-distance moving service that
+          makes staying on budget easy. You pay only for the space you use, so
+          you know the exact price as you load. Make your reservation Load your
+          container We’ll take it from there.
+        </span>
+      </h3>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -2,21 +2,23 @@
 
 <!-- user profile -->
 {% block content %}
-<div class="row profile-banner justify-content-center p-3">
+<div class="row w-50 profile-banner mx-auto p-3">
   {% if profile_data %}
-  <div class="col col-sm-12 col-md-3 p-2 rounded user-img-section">
-    <img src="{{ profile_data.picture.url }}" width="50px" class="user-img" />
+  <div class="col col-sm-12 col-md-3 p-2 rounded user-img-section bg-info">
+    <img src="{{ profile_data.picture.url }}" class="user-img" />
   </div>
-  <div class="col-12 col-sm-12 col-md-8 p-3 rounded user-details">
+  <div class="col col-sm-12 col-md-8 p-3 rounded user-details shadow-sm">
     <div>
-      <span class="username">
-        {{user_data.first_name}} {{user_data.last_name}}
+      <span class="">
+        <strong class="username"
+          >{{user_data.first_name}} {{user_data.last_name}}</strong
+        >
         <small>({{user_data}})</small>
         <!-- username -->
       </span>
       <!-- edit btn -->
       {% if user.id == request.user.id %}
-      <a href="{% url 'edit_profile' user.pk %}"> edit_profile </a>
+      <a href="{% url 'edit_profile' user.pk %}" class="ml-5"> edit_profile </a>
       {% endif %}
     </div>
 
