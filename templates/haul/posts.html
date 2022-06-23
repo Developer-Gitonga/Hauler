@@ -16,7 +16,7 @@
 <body>
     <div class="container">
 
-        {% for post in posts %} {% load static %}
+        {% load static %}
         <script src="https://kit.fontawesome.com/951b649889.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="{% static 'post.css' %}" type="text/css">
         <div class="team-grid">
@@ -24,10 +24,13 @@
         <i class="fa fa-plus text-white"></i> Create Post</button>
             <div class="container">
                 <div class="intro">
-                    <h2 class="text-center">customers satisifaction</h2>
-                    <p class="text-center">Honest Opinions on what our customer feel</p>
+                    <h2 class="text-center">customers Testimonials</h2>
+                    <hr>
+                    <p class="text-center">Honest candid reviews from our customers.</p>
                 </div>
+                {% for post in posts %}
                 <div class="row people d-flex justify-content-center">
+
                     <div class="col-md-4 col-lg-3 item">
                         <div class="box" style="background-image:url(https://images.pexels.com/photos/7464212/pexels-photo-7464212.jpeg?auto=compress&cs=tinysrgb&w=800)">
                             <div class="cover">
@@ -65,50 +68,18 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-lg-3 item">
-                        <div class="box" style="background-image:url(https://images.pexels.com/photos/6942739/pexels-photo-6942739.jpeg?auto=compress&cs=tinysrgb&w=800)">
-                            <div class="cover">
-                                <h3 class="name">The best moving service ever</h3>
-                                <p class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, minima.</p>
-                                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-3 item">
-                        <div class="box" style="background-image:url(https://images.pexels.com/photos/4246187/pexels-photo-4246187.jpeg?auto=compress&cs=tinysrgb&w=800)">
-                            <div class="cover">
-                                <h3 class="name">The best moving service ever</h3>
-                                <p class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, minima.</p>
-                                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 col-lg-3 item">
-                        <div class="box" style="background-image:url(https://images.pexels.com/photos/7464701/pexels-photo-7464701.jpeg?auto=compress&cs=tinysrgb&w=800)">
-                            <div class="cover">
-                                <h3 class="name">The best moving service ever</h3>
-                                <p class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, minima.</p>
-                                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 col-lg-3 item">
-                        <div class="box" style="background-image:url(https://images.pexels.com/photos/4246266/pexels-photo-4246266.jpeg?auto=compress&cs=tinysrgb&w=800)">
-                            <div class="cover">
-                                <h3 class="name">The best moving service ever</h3>
-                                <p class="title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, minima.</p>
-                                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
+
+
+
 
                 </div>
+                {% endfor %}
             </div>
         </div>
 
-        {% endfor %}
+
 
 
 
@@ -140,6 +111,25 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="row">
+            <div class="col mt-3">
+                <h2>Moving has never been this hassle free</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, similique porro beatae tempore cumque amet perspiciatis fugit ad laborum, ullam laboriosam voluptatum odio aliquid doloremque quisquam error rem. Molestias, ipsum.</p>
+            </div>
+            <div class="col">
+                <img src="https://images.pexels.com/photos/7464673/pexels-photo-7464673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" height="400">
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col mt-5">
+                <img src="https://images.pexels.com/photos/7793650/pexels-photo-7793650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" height="400">
+            </div>
+            <div class="col mt-5">
+                <h3 class="mt-5">Dont be Like Tim over here choose<span style="color:rgb(31, 76, 134);font-weight:bold"> Hauler Movers</span> today </h3>
+                <p>We take all that stress away from you by doing the heavy lifting for you dont have to even move a finger . We got you</p>
+            </div>
         </div>
 
 
