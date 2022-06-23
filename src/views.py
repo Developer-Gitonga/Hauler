@@ -6,6 +6,7 @@ from django.core.exceptions import PermissionDenied
 from django.views import View
 from django.contrib import messages
 from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # app imports
 from .forms import *
@@ -75,6 +76,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
+        messages.success(request, 'Logged out successfully.')
         return redirect("home")
 
 
@@ -115,8 +117,8 @@ def edit_user(request, pk):
         raise PermissionDenied
     
     
-class ProfileView( View):
-    login_ur = '/login/'
+class ProfileView(LoginRequiredMixin ,View):
+    login_url = '/login/'
     """this class view is used to render the profile page and execute user profile updates."""
 
     def get(self, request):
