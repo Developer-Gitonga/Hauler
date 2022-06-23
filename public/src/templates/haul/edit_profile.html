@@ -4,7 +4,7 @@
   <div class="card w-50 p-4 mx-auto">
     <div class="card-content">
       <h2 class="flow-text">Update your Profile</h2>
-      <form action="." method="POST" class="padding">
+      <form action="." method="POST" enctype="multipart/form-data">
         {% csrf_token %} {{ user_form.as_p }}
         <div class="divider"></div>
         {{ formset.management_form }} {{ formset.as_p }}
