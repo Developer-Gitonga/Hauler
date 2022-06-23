@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import QuoteForm
+
 
 
 class CreateUserForm(UserCreationForm):
@@ -28,3 +30,11 @@ class UserForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name..'}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email...'}),
         }
+        
+       
+class Quotesform(forms.ModelForm):
+   class Meta:
+        model = QuoteForm
+        fields = ('MovingFrom', 'MovingTo','size','When')
+  
+  

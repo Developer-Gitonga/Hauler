@@ -11,4 +11,12 @@
   <p>Hi there,{{request.user}}</p>
   {% endif %}
 </div>
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+<button type="submit">Get a Quote</button>
+</form>
+
+
+
 {% endblock %}

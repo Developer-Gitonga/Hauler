@@ -51,12 +51,12 @@ INSTALLED_APPS = [
     'material'
 ]
 
-# cloudinary config
-cloudinary.config(
-    cloud_name=config('CLOUD_NAME'),
-    api_key=config('API_KEY'),
-    api_secret=config('API_SECRET')
-)
+# # cloudinary config
+# cloudinary.config(
+#     cloud_name=config('CLOUD_NAME'),
+#     api_key=config('API_KEY'),
+#     api_secret=config('API_SECRET')
+# )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -97,27 +97,27 @@ WSGI_APPLICATION = 'public.wsgi.application'
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
-# }
+# # }
 
-if config('MODE') == "dev":
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': config('DB_NAME'),
-            'DB_USER': config('DB_USER'),
-            'DB_PASS': config('DB_PASS'),
-            'DB_HOST': config('DB_HOST'),
-            'DB_PORT': ''
-        }
-    }
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=config('DATABASE_URL')
-        )
-    }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+# if config('MODE') == "dev":
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#             'NAME': config('DB_NAME'),
+#             'DB_USER': config('DB_USER'),
+#             'DB_PASS': config('DB_PASS'),
+#             'DB_HOST': config('DB_HOST'),
+#             'DB_PORT': ''
+#         }
+#     }
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=config('DATABASE_URL')
+#         )
+#     }
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -171,3 +171,9 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+cloudinary.config( 
+    cloud_name = "moringaa-school", 
+    api_key = "186324441262827", 
+    api_secret = "urf-U-uRGo65S-9U37zXg9EhA3k" 
+)

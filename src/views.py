@@ -16,7 +16,9 @@ from .models import *
 
 class HomeView(View):
     def get(self, request):
-        return render(request, 'haul/home.html')
+        form=Quotesform()
+        context= {"form": form}
+        return render(request, 'haul/home.html',)
         # return HttpResponse('Hello World!')
 
 
@@ -106,11 +108,10 @@ def edit_user(request, pk):
                     formset.save()
                     return HttpResponseRedirect('/profile/')
 
-        return render(request, 'haul/edit_profile.html', {
-            "pk": pk,
-            "user_form": user_form,
-            "formset": formset,
-        })
+        return render(request, 'haul/edit_profile.html')
+            
+    
+ 
     else:
         raise PermissionDenied
     
@@ -129,3 +130,18 @@ class ProfileView( View):
 
         }
         return render(request, 'haul/profile.html', context)
+    
+    
+    
+# get cost for relocation form.
+def form(request):
+  if request.method == 'POST':
+    form = Form(request.POST)
+    if form.is_valid():
+      post = form.save(commit=False)
+      post.save()
+      messages.success(request, 'Hi, An Email was successfully sent')
+      return HttpResponseRedirect(request.path_info)
+    
+  form = Form()
+  return render(request,"form.html", {'form' :form})
