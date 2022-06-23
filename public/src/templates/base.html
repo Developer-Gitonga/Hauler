@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {% if title %}
-    <title>Watch |{{title}}</title>
+    <title>{{title}}| Haul</title>
     {% else %}
-    <title>Watch</title>
+    <title>Haul</title>
     {% endif %}
 
     <!-- static file links -->
@@ -21,7 +21,7 @@
   </head>
 
   <body>
-      {% include 'haul/nav.html' %}
+    {% include 'haul/nav.html' %}
     <div class="container mt-3">
       {% block content %}
       <!-- home content -->
