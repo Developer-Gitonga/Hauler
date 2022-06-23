@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
+from datetime import datetime as dt
+
 
 
 # Create your models here.
@@ -23,3 +25,22 @@ class UserProfile(models.Model):
             user_profile = UserProfile(user=user)
             user_profile.save()
     post_save.connect(create_profile, sender=User)   
+
+
+
+
+
+class Posts(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100 ,blank=False)
+    description = models.TextField(max_length=300, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+    def create_post(self):
+        self.save()
+
+
+    def __str__(self):
+        return self.title
+

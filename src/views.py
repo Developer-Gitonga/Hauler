@@ -10,8 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # app imports
 from .forms import *
-from .models import *
-
+from .models import Posts
 # Create your views here.
 
 
@@ -131,3 +130,46 @@ class ProfileView(LoginRequiredMixin ,View):
 
         }
         return render(request, 'haul/profile.html', context)
+
+
+# creating of posts and viewing posts
+
+
+
+def create_post(request):
+
+    if request.method == 'POST':
+        current_user = request.user
+        title = request.POST['title']
+        description = request.POST['description']
+
+        post = Posts(
+            user = current_user,
+            title = title,
+            description = description
+        )
+        post.create_post()
+
+    
+
+        return redirect('posts')
+
+
+
+
+
+
+def Posted(request):
+
+    posts = Posts.objects.all()
+
+    ctx = posts
+
+
+
+
+
+
+
+
+    return render(request,'haul/posts.html',{ "posts":posts})
