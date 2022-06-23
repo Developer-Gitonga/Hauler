@@ -1,12 +1,11 @@
 <nav class="container navbar navbar-expand-lg navbar-light- bg-light">
-  <div class="navbar-nav">
-    <a href="{% url 'home' %}" class="nav-link">home</a>
-    {% if user.is_anonymous %}
-    <a href="{% url 'register' %}" class="nav-link">register</a>
-    <a href="{% url 'login' %}" class="nav-link">login</a>
-    {% else %}
-    <a href="{% url 'logout' %}" class="nav-link btn btn-otline-warning"
-      >logout</a
+    <div class="navbar-nav">
+        <a href="{% url 'home' %}" class="nav-link">home</a> {% if user.is_anonymous %}
+        <a href="{% url 'posts' %}" class="nav-link">User Posts</a>
+
+        <a href="{% url 'register' %}" class="nav-link">register</a>
+        <a href="{% url 'login' %}" class="nav-link">login</a> {% else %}
+        <a href="{% url 'logout' %}" class="nav-link btn btn-otline-warning">logout</a
     >
     <a href="{% url 'profile' %}" class="nav-link btn btn-otline-warning"
       >My Profile</a
