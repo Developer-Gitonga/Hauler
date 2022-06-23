@@ -8,9 +8,10 @@ from django.contrib import messages
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 # app imports
 from .forms import *
-from .models import Posts
+from .models import Posts, UserProfile
 # Create your views here.
 
 
@@ -44,9 +45,8 @@ class RegisterView(View):
             form: form,
         }
         return render(request, 'haul/register.html', context)
-    
-    
-    
+
+
 # user login view
 class LoginView(View):
     context = {
@@ -114,9 +114,9 @@ def edit_user(request, pk):
         })
     else:
         raise PermissionDenied
-    
-    
-class ProfileView(LoginRequiredMixin ,View):
+
+
+class ProfileView(LoginRequiredMixin, View):
     login_url = '/login/'
     """this class view is used to render the profile page and execute user profile updates."""
 
@@ -133,9 +133,7 @@ class ProfileView(LoginRequiredMixin ,View):
 
 
 # creating of posts and viewing posts
-
-
-
+@login_required(login_url='/create_posts/')
 def create_post(request):
 
     if request.method == 'POST':
@@ -144,19 +142,13 @@ def create_post(request):
         description = request.POST['description']
 
         post = Posts(
-            user = current_user,
-            title = title,
-            description = description
+            user=current_user,
+            title=title,
+            description=description
         )
         post.create_post()
 
-    
-
         return redirect('posts')
-
-
-
-
 
 
 def Posted(request):
@@ -165,11 +157,4 @@ def Posted(request):
 
     ctx = posts
 
-
-
-
-
-
-
-
-    return render(request,'haul/posts.html',{ "posts":posts})
+    return render(request, 'haul/posts.html', {"posts": posts})
