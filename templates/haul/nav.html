@@ -5,6 +5,8 @@
 
         <a href="{% url 'register' %}" class="nav-link">register</a>
         <a href="{% url 'login' %}" class="nav-link">login</a> {% else %}
+        <a href="{% url 'posts' %}" class="nav-link">User Posts</a>
+
         <a href="{% url 'logout' %}" class="nav-link btn btn-otline-warning">logout</a
     >
     <a href="{% url 'profile' %}" class="nav-link btn btn-otline-warning"
