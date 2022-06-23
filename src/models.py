@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
+from django_google_maps import fields as map_fields
 
 
 # Create your models here.
@@ -23,3 +24,11 @@ class UserProfile(models.Model):
             user_profile = UserProfile(user=user)
             user_profile.save()
     post_save.connect(create_profile, sender=User)   
+    
+    
+# create moving details model
+class MovingDetails(models.Model):
+    depart_location = map_fields.AddressField(max_length=200)
+    geolocation = map_fields.GeoLocationField(max_length=100)
+    
+    
