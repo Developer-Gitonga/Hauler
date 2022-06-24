@@ -1,11 +1,11 @@
-from datetime import datetime as dt
-from django_google_maps import fields as map_fields
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
 
 # Create your models here.
+
+
 class UserProfile(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='profile')
@@ -25,11 +25,28 @@ class UserProfile(models.Model):
             user_profile.save()
     post_save.connect(create_profile, sender=User)
 
+    
+LUGGAGE_CHOICES = [
+    (1,'Bedsitter'),
+    (2,'1 Bedroom'),
+    (3,'2 Bedroom'),
+    (4,'3 Bedroom'),
+    (5,'Small Office'),
+    (6,'Medium Office'),
+    (8,'Large Office'),
+]
 
 # create moving details model
 class MovingDetails(models.Model):
-    depart_location = map_fields.AddressField(max_length=200)
-    geolocation = map_fields.GeoLocationField(max_length=100)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='moving_details', null=True)
+    address = models.CharField(max_length=200, blank=True)
+    destination = models.CharField(max_length=100, blank=True)
+    luggage_size = models.IntegerField(choices=LUGGAGE_CHOICES, default=0)
+    relocating_on = models.DateField(blank=True, null=True)
+
+    def __str__(self) -> str:
+        return str(f'{self.address} :: {self.destination}' )
 
 
 class Posts(models.Model):
@@ -43,3 +60,4 @@ class Posts(models.Model):
 
     def __str__(self):
         return self.title
+
