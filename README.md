@@ -1,11 +1,7 @@
 
-**Hauler**
-
-
-# Description
+# Hauler
 
 Hauler is basically an application that helps people suppose someone wants to move out but time is limited and also the facilties are a problem thats where the haul-Movers come in and provide the services.
-
 
 # Getting Started
 
