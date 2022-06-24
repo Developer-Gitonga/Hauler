@@ -3,31 +3,138 @@
 <!--  -->
 {% block content %}
 <!-- home content -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
 <div class="row">
-  <div class="col col-lg-12">
-    <div class="hero-banner">
-      <div class="banner-text rounded">
-        <h3>Let's Get Moving...</h3>
-      </div>
-      <div class="quote-form text-center">
-        <h3 class="text-light">
-          Hauler is the quick, convenient option that makes long-distance moving
-          easy
-        </h3>
-        <button class="btn btn-primary btn-sm">Get a quote.</button>
-      </div>
-    </div>
-    <div class="jumbotron service-poster p-4">
-      <h3>
-        <i class="fas fa-info-circle"></i>
-        <span class="text-dark">
+    <div class="col col-lg-12">
+        <div class="hero-banner">
+            <div class="banner-text rounded">
+                <h3>Let's Get Moving...</h3>
+            </div>
+            <div class="quote-form text-center">
+                <h3 class="text-light">
+                    Hauler is the quick, convenient option that makes long-distance moving easy
+                </h3>
+                <button class="btn btn-primary btn-sm">Get a quote.</button>
+            </div>
+        </div>
+        <div class="jumbotron service-poster p-4">
+            <h3>
+                <i class="fas fa-info-circle"></i>
+                <span class="text-dark">
           We Drive. You Save. Hauler is the long-distance moving service that
           makes staying on budget easy. You pay only for the space you use, so
           you know the exact price as you load. Make your reservation Load your
           container We’ll take it from there.
         </span>
-      </h3>
+            </h3>
+        </div>
     </div>
-  </div>
 </div>
+
+<!-- serivces section -->
+<section class="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p class="col-md-8 offset-md-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="service-box">
+                    <i class="fa-solid fa-truck-moving"></i>
+                    <h4><a href="">Office moving</a></h4>
+                    <p>Office moving bother intercity and intracity . Done with professionalism</p>
+                    <a href="#" class="btn btn-success center-block mt-2 mb-2">Read More »</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="service-box">
+                    <i class="fa-solid fa-apartment"></i>
+                    <h4><a href="">Residential Moving</a></h4>
+                    <p>Relocating you to that new apartment effortlessly . Is what we do </p>
+                    <a href="#" class="btn btn-success center-block mt-2 mb-2">Read More »</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="service-box">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <h4><a href=""> A quote on the go</a></h4>
+                    <p>Generate a quote on the go , We understand you have more important things to do </p>
+                    <a href="#" class="btn btn-success center-block mt-2 mb-2">Read More »</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="service-box">
+                    <i class="fa-regular fa-user-helmet-safety"></i>
+                    <h4><a href="">Skilled personel</a></h4>
+                    <p>You dont have to worry about handling of your personal items we have trained personel who are trained to handle every situation.</p>
+                    <a href="#" class="btn btn-success center-block mt-2 mb-2">Read More »</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="service-box">
+                    <i class="fa-regular fa-truck-ramp-box"></i>
+                    <h4><a href="">State of the art Equipment </a></h4>
+                    <p>Having trained and not having the right tools for the job is not a word in our dictionary . We use state of the art equipemnent . </p>
+                    <a href="#" class="btn btn-success center-block mt-2 mb-2">Read More »</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="service-box">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h4><a href="">Scheduling appointments</a></h4>
+                    <p>We will schedule an appointment Convienient to you for the relocation assesment at the comfort your Home </p>
+                    <a href="#" class="btn btn-success center-block mt-2 mb-2">Read More »</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+    <!-- Grid container -->
+    <div class="container pt-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#" role="button" data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i
+      ></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="3" role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i
+      ></a>
+
+            <!-- Google -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#" role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i
+      ></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#" role="button" data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i
+      ></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#" role="button" data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i
+      ></a>
+            <!-- Github -->
+            <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#" role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i
+      ></a>
+        </section>
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <Hauler class="text-dark" href="https://mdbootstrap.com/">Hauler movers </a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+
+<!-- End of .container -->
 {% endblock %}

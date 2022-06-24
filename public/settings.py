@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'bootstrap4',
     'material',
-    'fontawesomefree'
+    'fontawesomefree',
 ]
 
 # cloudinary config
