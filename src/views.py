@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect,  get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -17,7 +18,11 @@ from .models import Posts, UserProfile
 
 class HomeView(View):
     def get(self, request):
-        return render(request, 'haul/home.html')
+        form = CostForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'haul/home.html', context)
         # return HttpResponse('Hello World!')
 
 
@@ -105,7 +110,7 @@ def edit_user(request, pk):
                 if formset.is_valid():
                     created_user.save()
                     formset.save()
-                    return HttpResponseRedirect('/profile/')
+                    return HttpResponseRedirect('/home/')
 
         return render(request, 'haul/edit_profile.html', {
             "pk": pk,
@@ -122,12 +127,15 @@ class ProfileView(LoginRequiredMixin, View):
 
     def get(self, request):
         user = request.user
+        receipt = MovingDetails.objects.all()
+        # receipt = get_object_or_404(MovingDetails, user=user.id)
+        # print(receipt)
         profile = get_object_or_404(UserProfile, user=user)
         context = {
             'title': 'Profile',
             'user_data': user,
             'profile_data': profile,
-
+            'receipt': receipt
         }
         return render(request, 'haul/profile.html', context)
 
@@ -158,3 +166,32 @@ def Posted(request):
     ctx = posts
 
     return render(request, 'haul/posts.html', {"posts": posts})
+
+
+# generate user total cost 
+@login_required(login_url='/result/')
+def calculate_cost(request):
+    if request.method == 'POST':
+        form = CostForm(request.POST)
+        
+        if form.is_valid():
+            address = form.cleaned_data['address']
+            destination = form.cleaned_data['destination']
+            luggage_size = form.cleaned_data['luggage_size']
+            relocating_on = form.cleaned_data['relocating_on']
+            form = MovingDetails(address=address, destination=destination, luggage_size=luggage_size, relocating_on=relocating_on)
+            form.save()
+            
+            # calculate cost
+            # total_cost = 0
+    else:
+        form = CostForm()
+    
+    # receipt = MovingDetails.objects.get(user=request.user.id)
+    context = {
+        'form': form,
+        # 'receipt': receipt,
+    }            
+    return render(request, 'haul/profile.html', context)
+                
+                
