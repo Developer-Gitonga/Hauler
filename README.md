@@ -1,42 +1,45 @@
 
 **Hauler**
 
----
-#### Description
 
-Haul-project is basically an application that helps people suppose someone wants to move out but time is limited and also the facilties are a problem thats where the haul-Movers come in and provide the services.
----
+# Description
+
+Hauler is basically an application that helps people suppose someone wants to move out but time is limited and also the facilties are a problem thats where the haul-Movers come in and provide the services.
+
 
 # Getting Started
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 # Prerequisites
+
 What things you need to install the software and how to install them
 
- Django and Python Needed
+    Django and Python Needed
  
 First you need to clone this project to your local machine
 
-git clone https://github.com/Developer-Gitonga/neighborly.git
+    git clone https://github.com/Developer-Gitonga/Hauler.git
 
 # Installing
+
 First we install virtualenv and activate it
 
 To install it run the command
 
- python3 -m venv venv
+    python3 -m venv venv
 
 After the installation is done, now its time to activate the env
 
-source env/bin/activate
+    source venv/bin/activate
 
 Next we need to install all the requirements for the project from the requirements.txt file
 
-pip3 install -r requirements.txt
+    pip install -r requirements.txt
 
 Now its time to run the code
 
-python3 manage.py runserver
+    python3 manage.py runserver
 
 ## Built With
 
