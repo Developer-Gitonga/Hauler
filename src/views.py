@@ -169,7 +169,7 @@ def Posted(request):
 
 
 # generate user total cost 
-@login_required(login_url='/result/')
+@login_required(login_url='/profile/')
 def calculate_cost(request):
     if request.method == 'POST':
         form = CostForm(request.POST)
@@ -187,10 +187,10 @@ def calculate_cost(request):
     else:
         form = CostForm()
     
-    # receipt = MovingDetails.objects.get(user=request.user.id)
+    receipt = MovingDetails.objects.filter(user=request.user.id)
     context = {
         'form': form,
-        # 'receipt': receipt,
+        'receipt': receipt,
     }            
     return render(request, 'haul/profile.html', context)
                 
