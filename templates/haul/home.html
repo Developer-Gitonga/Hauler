@@ -76,7 +76,7 @@
       </div>
       <div class="modal-body">
         <!-- details forms -->
-        <form action="{% url 'profile' %}" method="POST">
+        <form action="{% url 'result' %}" method="POST">
           {% csrf_token %} {{form|crispy}}
           <div class="modal-footer">
             <button
