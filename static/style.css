@@ -1,7 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Montez&display=swap");
+
 * {
   padding: 0;
   margin: 0;
 }
+
+/* top-nav */
+.navbar-expand-lg {
+  background-color: #a9e7f3;
+}
+.navbar-expand-lg a {
+  color: #111a43;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.logo {
+  font-family: "Montez", cursive;
+  font-size: 1.6rem !important;
+}
+/* top-nav end */
 
 /* landing page */
 .hero-banner {
@@ -31,11 +49,11 @@
   transform: translate(-50%, -50%);
 }
 
-.service-poster{
-    position: absolute;
-    left: 50%;
-    top: -50%;
-    transform: translate(-50%, -50%);
+.service-poster {
+  position: absolute;
+  left: 50%;
+  top: -50%;
+  transform: translate(-50%, -50%);
 }
 /* landingpage */
 
@@ -48,3 +66,9 @@
   display: block;
 }
 /* user profile */
+
+/* seconnd page styles  */
+.page-two {
+  height: 100vh;
+}
+/* seconnd page styles  */

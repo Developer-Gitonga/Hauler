@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render, HttpResponse, redirect, HttpResponseRedirect,  get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -8,15 +9,20 @@ from django.contrib import messages
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 # app imports
 from .forms import *
-from .models import *
+from .models import Posts, UserProfile
 # Create your views here.
 
 
 class HomeView(View):
     def get(self, request):
-        return render(request, 'haul/home.html')
+        form = CostForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'haul/home.html', context)
         # return HttpResponse('Hello World!')
 
 
@@ -44,9 +50,8 @@ class RegisterView(View):
             form: form,
         }
         return render(request, 'haul/register.html', context)
-    
-    
-    
+
+
 # user login view
 class LoginView(View):
     context = {
@@ -105,7 +110,7 @@ def edit_user(request, pk):
                 if formset.is_valid():
                     created_user.save()
                     formset.save()
-                    return HttpResponseRedirect('/profile/')
+                    return HttpResponseRedirect('/home/')
 
         return render(request, 'haul/edit_profile.html', {
             "pk": pk,
@@ -114,28 +119,29 @@ def edit_user(request, pk):
         })
     else:
         raise PermissionDenied
-    
-    
-class ProfileView(LoginRequiredMixin ,View):
+
+
+class ProfileView(LoginRequiredMixin, View):
     login_url = '/login/'
     """this class view is used to render the profile page and execute user profile updates."""
 
     def get(self, request):
         user = request.user
+        receipt = MovingDetails.objects.all()
+        # receipt = get_object_or_404(MovingDetails, user=user.id)
+        # print(receipt)
         profile = get_object_or_404(UserProfile, user=user)
         context = {
             'title': 'Profile',
             'user_data': user,
             'profile_data': profile,
-
+            'receipt': receipt
         }
         return render(request, 'haul/profile.html', context)
 
 
 # creating of posts and viewing posts
-
-
-
+@login_required(login_url='/create_posts/')
 def create_post(request):
 
     if request.method == 'POST':
@@ -144,19 +150,13 @@ def create_post(request):
         description = request.POST['description']
 
         post = Posts(
-            user = current_user,
-            title = title,
-            description = description
+            user=current_user,
+            title=title,
+            description=description
         )
         post.create_post()
 
-    
-
         return redirect('posts')
-
-
-
-
 
 
 def Posted(request):
@@ -165,11 +165,33 @@ def Posted(request):
 
     ctx = posts
 
+    return render(request, 'haul/posts.html', {"posts": posts})
 
 
-
-
-
-
-
-    return render(request,'haul/posts.html',{ "posts":posts})
+# generate user total cost 
+@login_required(login_url='/result/')
+def calculate_cost(request):
+    if request.method == 'POST':
+        form = CostForm(request.POST)
+        
+        if form.is_valid():
+            address = form.cleaned_data['address']
+            destination = form.cleaned_data['destination']
+            luggage_size = form.cleaned_data['luggage_size']
+            relocating_on = form.cleaned_data['relocating_on']
+            form = MovingDetails(address=address, destination=destination, luggage_size=luggage_size, relocating_on=relocating_on)
+            form.save()
+            
+            # calculate cost
+            # total_cost = 0
+    else:
+        form = CostForm()
+    
+    # receipt = MovingDetails.objects.get(user=request.user.id)
+    context = {
+        'form': form,
+        # 'receipt': receipt,
+    }            
+    return render(request, 'haul/profile.html', context)
+                
+                

@@ -13,4 +13,5 @@ urlpatterns = [
     path('profile/', ProfileView.as_view(), name='profile'),
     path('posts/',  views.Posted , name="posts" ),
     path('posts/create',  views.create_post , name="create_posts" ),
+    path('result/', views.calculate_cost, name='result'),
 ]
