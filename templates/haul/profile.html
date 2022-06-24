@@ -36,11 +36,80 @@
     </div>
   </div>
 </div>
-<div class="row">
-  <div class="col">
-    {% if receipt.user == request.user %}
-    <h5>{{receipt}}</h5>
-    {% endif %}
-  </div>
-</div>
+
+   
+  <!-- receipt -->
+ <div class="row p-5">
+   {% for item in receipts %}
+        <div class="col-2 p-2 m-4">
+            <div class="row">
+                <div class="col-xs-4 col-sm-6 col-md-6">
+                    <address>
+                        <strong>{{item.address}}</strong>
+                                            </address>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em>{{item.destination}}</em>
+                    </p>
+                    <p>
+                        <em>Receipt #: 34522677W</em>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <h1>Receipt</h1>
+                </div>
+                </span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>#</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-md-9"><em>{{item.address }} to {{item.destination}}</em></h4></td>
+                            <td class="col-md-1" style="text-align: center"> 2 </td>
+                            <td class="col-md-1 text-center">$13</td>
+                            <td class="col-md-1 text-center">$26</td>
+                        </tr>
+
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right">
+                            <p>
+                                <strong>Subtotal: </strong>
+                            </p>
+                            <p>
+                                <strong>Tax: </strong>
+                            </p></td>
+                            <td class="text-center">
+                            <p>
+                                <strong>$6.94</strong>
+                            </p>
+                            <p>
+                                <strong>$6.94</strong>
+                            </p></td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>$31.53</strong></h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success btn-lg btn-block">
+                    Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
+                </button></td>
+            </div>
+        </div>
+        {% endfor %}
+  <!-- receipt -->
 {% endif %} {% endblock %}
