@@ -19,11 +19,11 @@ from .models import Posts, UserProfile
 class HomeView(View):
     def get(self, request):
         form = CostForm()
+        
         context = {
             'form': form
         }
         return render(request, 'haul/home.html', context)
-        # return HttpResponse('Hello World!')
 
 
 # user register view
@@ -127,7 +127,7 @@ class ProfileView(LoginRequiredMixin, View):
 
     def get(self, request):
         user = request.user
-        receipt = MovingDetails.objects.all()
+        receipt = MovingDetails.objects.filter(user=user.id)
         # receipt = get_object_or_404(MovingDetails, user=user.id)
         # print(receipt)
         profile = get_object_or_404(UserProfile, user=user)
