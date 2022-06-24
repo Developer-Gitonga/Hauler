@@ -12,16 +12,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # app imports
 from .forms import *
-from .models import Posts, UserProfile
+from .models import Posts, UserProfile, RateUs
 # Create your views here.
 
 
 class HomeView(View):
     def get(self, request):
         form = CostForm()
-        
+        reviews = RateUs.objects.all()
         context = {
-            'form': form
+            'form': form,
+            'reviews': reviews
         }
         return render(request, 'haul/home.html', context)
 

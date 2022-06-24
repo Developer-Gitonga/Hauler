@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import post_save
+from django.contrib.contenttypes.fields import GenericRelation
+from star_ratings.models import Rating
 
 # Create your models here.
 
@@ -61,3 +63,11 @@ class Posts(models.Model):
     def __str__(self):
         return self.title
 
+
+class RateUs(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    reviews = models.CharField(max_length=100, null=True)
+    ratings = GenericRelation(Rating, related_query_name='ratings')
+
+    def __str__(self):
+        return str(self.reviews)

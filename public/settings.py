@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'material',
     'fontawesomefree',
-     'crispy_forms',
+    'crispy_forms',
+    'star_ratings',
 ]
 
 # cloudinary config
