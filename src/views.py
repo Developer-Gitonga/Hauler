@@ -135,7 +135,7 @@ class ProfileView(LoginRequiredMixin, View):
             'title': 'Profile',
             'user_data': user,
             'profile_data': profile,
-            'receipt': receipt
+            'receipts': receipt
         }
         return render(request, 'haul/profile.html', context)
 
@@ -179,9 +179,9 @@ def calculate_cost(request):
             destination = form.cleaned_data['destination']
             luggage_size = form.cleaned_data['luggage_size']
             relocating_on = form.cleaned_data['relocating_on']
-            form = MovingDetails(address=address, destination=destination, luggage_size=luggage_size, relocating_on=relocating_on)
+            form = MovingDetails(user=request.user,address=address, destination=destination, luggage_size=luggage_size, relocating_on=relocating_on)
             form.save()
-            
+            return redirect('profile')
             # calculate cost
             # total_cost = 0
     else:
@@ -192,6 +192,8 @@ def calculate_cost(request):
         'form': form,
         'receipt': receipt,
     }            
+
     return render(request, 'haul/profile.html', context)
+    # return HttpResponseRedirect('profile/')
                 
                 
