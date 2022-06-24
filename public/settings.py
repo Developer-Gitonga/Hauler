@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'material',
     'fontawesomefree',
-    'django_google_maps',
+     'crispy_forms',
 ]
 
 # cloudinary config
