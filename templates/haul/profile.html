@@ -36,4 +36,11 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col">
+    {% if receipt.user == request.user %}
+    <h5>{{receipt}}</h5>
+    {% endif %}
+  </div>
+</div>
 {% endif %} {% endblock %}
