@@ -111,7 +111,7 @@ def edit_user(request, pk):
                 if formset.is_valid():
                     created_user.save()
                     formset.save()
-                    return HttpResponseRedirect('/home/')
+                    return HttpResponseRedirect('/profile/')
 
         return render(request, 'haul/edit_profile.html', {
             "pk": pk,
