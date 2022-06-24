@@ -1,6 +1,7 @@
 <!-- <!doctype html>
 <html lang="en"> -->
 {% extends 'base.html' %}
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8"> {% load static %}
@@ -60,6 +61,7 @@
 
 
 {% block content %}
+
 <body>
     <div class="container">
 
@@ -69,11 +71,9 @@
         <div class="team-grid">
             {% if user.is_anonymous %}
             <button type="button" class="btn btn-primary m-3 d-none" data-bs-toggle="modal" data-bs-target="#addBusiness">
-        <i class="fa fa-plus text-white"></i> Create Post</button>
-        {% else %}
-         <button type="button" class="btn btn-primary m-3 " data-bs-toggle="modal" data-bs-target="#addBusiness">
-        <i class="fa fa-plus text-white"></i> Create Post</button>
-        {% endif %}
+        <i class="fa fa-plus text-white"></i> Create Post</button> {% else %}
+            <button type="button" class="btn btn-primary m-3 " data-bs-toggle="modal" data-bs-target="#addBusiness">
+        <i class="fa fa-plus text-white"></i> Create Post</button> {% endif %}
 
             <div class="container">
                 <div class="intro">
@@ -81,10 +81,10 @@
                     <hr>
                     <p class="text-center">Honest candid reviews from our customers.</p>
                 </div>
-                {% for post in posts %}
-                <div class="row people d-flex justify-content-center">
 
-                    <div class="col-md-4 col-lg-3 item">
+                <div class="row people d-flex justify-content-center">
+                    {% for post in posts %}
+                    <div class="col-md-4 item">
                         <div class="box" style="background-image:url(https://images.pexels.com/photos/7464212/pexels-photo-7464212.jpeg?auto=compress&cs=tinysrgb&w=800)">
                             <div class="cover">
                                 <h3 class="name">{{post.title}}</h3>
@@ -93,7 +93,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-3 item">
+                    {% endfor %}
+                    <!-- <div class="col-md-4 col-lg-3 item">
                         <div class="box" style="background-image:url(https://images.pexels.com/photos/7464698/pexels-photo-7464698.jpeg?auto=compress&cs=tinysrgb&w=800)">
                             <div class="cover">
                                 <h3 class="name">The best moving service ever</h3>
@@ -123,12 +124,12 @@
 
 
 
-
+ -->
 
 
 
                 </div>
-                {% endfor %}
+
             </div>
         </div>
 
