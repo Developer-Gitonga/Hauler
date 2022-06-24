@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # app imports
 from .forms import *
-from .models import Posts
+from .models import *
 # Create your views here.
 
 
